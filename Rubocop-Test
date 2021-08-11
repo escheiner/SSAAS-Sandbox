@@ -1,0 +1,23 @@
+def initiate_check_run
+    # Once the check run is created, you'll update the status of the check run
+  # to 'in_progress' and run the CI process. When the CI finishes, you'll
+  # update the check run status to 'completed' and add the CI results.
+
+  @installation_client.update_check_run(
+    @payload['repository']['full_name'],
+    @payload['check_run']['id'],
+    status: 'in_progress',
+    accept: 'application/vnd.github.v3+json'
+  )
+
+  # ***** RUN A CI TEST *****
+
+  # Mark the check run as complete!
+  @installation_client.update_check_run(
+    @payload['repository']['full_name'],
+    @payload['check_run']['id'],
+    status: 'completed',
+    conclusion: 'success',
+    accept: 'application/vnd.github.v3+json'
+  )
+end
