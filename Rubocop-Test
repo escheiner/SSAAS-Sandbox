@@ -1,10 +1,18 @@
+require 'sinatra'
+require 'octokit'
+require 'dotenv/load' # Manages environment variables
+require 'json'
+require 'openssl'     # Verifies the webhook signature
+require 'jwt'         # Authenticates a GitHub App
+require 'time'        # Gets ISO 8601 representation of a Time object
+require 'logger' 
 def initiate_check_run
     # Once the check run is created, you'll update the status of the check run
   # to 'in_progress' and run the CI process. When the CI finishes, you'll
   # update the check run status to 'completed' and add the CI results.
 
   @installation_client.update_check_run(
-    @payload['repository']['full_name'],
+        @payload['repository']['full_name'],
     @payload['check_run']['id'],
     status: 'in_progress',
     accept: 'application/vnd.github.v3+json'
