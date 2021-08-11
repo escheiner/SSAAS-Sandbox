@@ -1,5 +1,5 @@
 # The Octocat class tells you about different breeds of Octocat
-#This class is for testing
+# This class is for testing
 class Octocat
   def initialize(name, *breeds)
     # Instance variables
