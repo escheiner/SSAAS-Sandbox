@@ -1,2 +1,2 @@
 # SSAAS-Sandbox
-Security Scan As a Service Sandbox
+Security Scan As a Service Sandbox for SAST Solutions
