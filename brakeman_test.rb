@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+#This is a test
 module Signals
   module Classifiers
     class CanaryResult < ApplicationModel
